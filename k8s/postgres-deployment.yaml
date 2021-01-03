@@ -24,10 +24,9 @@ spec:
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
-#             subPath wordt gebruikt om een folder te creëren waarin de data vanuit het mountPath wordt opgeslagen in de PVC
               subPath: postgres
           env:
-            - name: POSTGRESS_PASSWORD
+            - name: PGPASSWORD
               valueFrom:
                 secretKeyRef:
                   name: pgpassword

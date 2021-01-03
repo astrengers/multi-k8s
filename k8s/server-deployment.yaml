@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: cygnetops/multi-server-pgfix-5-11
+          image: stephengrider/multi-server
           ports:
             - containerPort: 5000
           env:
@@ -31,10 +31,7 @@ spec:
             - name: PGDATABASE
               value: postgres
             - name: PGPASSWORD
-#             Haal waarde op uit secret binnen kubernetes
               valueFrom:
                 secretKeyRef:
-#                 Gebruik naam van de secret referentie
                   name: pgpassword
-#                 Gebruik de specifieke key waar de value onder staat opgeslagen binnen de referentie
                   key: PGPASSWORD
